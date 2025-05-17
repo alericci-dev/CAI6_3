@@ -8,7 +8,7 @@ contract VickreyAuctionSimple {
     uint256 public deliveryDueDate;
     uint256 public maxBid;
     uint256 public numBidders;
-    uint256 public constant MAX_BIDDERS = 3;
+    uint256 public constant MAX_BIDDERS = 30;
     uint256 public constant DEPOSIT_PERCENTAGE = 10;
     
     enum AuctionState { Open, Closed, Completed }
@@ -127,7 +127,7 @@ contract VickreyAuctionSimple {
     }
 
 
-    function returnDeposits() external onlyOwner {
+    function returnDeposits() private onlyOwner {
         require(state == AuctionState.Closed, "Auction still open");
         
         for (uint256 i = 0; i < bids.length; i++) {

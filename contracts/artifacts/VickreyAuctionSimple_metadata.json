@@ -318,13 +318,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "returnDeposits",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "state",
 				"outputs": [
 					{
@@ -404,11 +397,11 @@
 	},
 	"sources": {
 		"contracts/subasta.sol": {
-			"keccak256": "0xfc7596e03c1ff8c1383b6848f42839a564b6520951d7e7c796f11b4a5781684e",
+			"keccak256": "0x5d5a4d7d125b427c60914ae1a9f3abb884dcbb6a79fb2c000dcba6a8e6586dea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1e3561b2d57a3ea6b065807720385f25dc86cc3ba42ef2dc7c7eca8d448f6c35",
-				"dweb:/ipfs/QmSqtNJYHr9dC14J5K16YUTtCKRQ92W8Ksyh3hFtf9Qitm"
+				"bzz-raw://1e617ab271fe5fe7e243a83779cbf2d9bc29ca8a09b1683ae8b1b9fb20b51413",
+				"dweb:/ipfs/QmUYuBnru7iea1FVtuphQHryj9zjrgAn46G6Argv84PWtF"
 			]
 		}
 	},
