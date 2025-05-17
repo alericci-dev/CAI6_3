@@ -19,6 +19,11 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_deliveryDueDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_maxBid",
 						"type": "uint256"
 					}
@@ -136,6 +141,64 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "bidders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "bids",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "bidder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deposit",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "depositReturned",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "deliveryDueDate",
 				"outputs": [
@@ -152,7 +215,7 @@
 				"inputs": [],
 				"name": "deliveryReceived",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -211,7 +274,7 @@
 				"inputs": [],
 				"name": "notDelivered",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -341,11 +404,11 @@
 	},
 	"sources": {
 		"contracts/subasta.sol": {
-			"keccak256": "0xaa8dea74dbbda82d65df8b3422ca0931229fb27814c7169ec3c4efa427bc2967",
+			"keccak256": "0xfc7596e03c1ff8c1383b6848f42839a564b6520951d7e7c796f11b4a5781684e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4e7b069327448fad0b6db204df220f6a0702542d1a1547b7ad070522986e58f6",
-				"dweb:/ipfs/Qma7ZqgjTqDuaFM1hD4vso911kSXF6vzHeYaoV1bB117mx"
+				"bzz-raw://1e3561b2d57a3ea6b065807720385f25dc86cc3ba42ef2dc7c7eca8d448f6c35",
+				"dweb:/ipfs/QmSqtNJYHr9dC14J5K16YUTtCKRQ92W8Ksyh3hFtf9Qitm"
 			]
 		}
 	},

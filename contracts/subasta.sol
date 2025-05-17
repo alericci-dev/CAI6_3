@@ -17,12 +17,13 @@ contract VickreyAuctionSimple {
     struct Bid {
         address payable bidder;
         uint256 amount;
+        uint256 deposit;
         uint256 timestamp;
         bool depositReturned;
     }
     
-    Bid[] private bids;
-    address[] private bidders;
+    Bid[] public bids;
+    address[] public bidders;
     address payable public winner;
     uint256 public winningPrice;
     uint256 public winnerDeposit;
@@ -45,13 +46,16 @@ contract VickreyAuctionSimple {
     constructor(
         uint256 _startDate,
         uint256 _endDate,
+        uint256 _deliveryDueDate,
         uint256 _maxBid
     ) payable {
         require(msg.value >= _maxBid, "You have to deposit the amount of the maximum possible bid");
+        require(_startDate < _endDate && _endDate < _deliveryDueDate, "Invalid auction dates");
 
         owner = payable(msg.sender);
         auctionStart = _startDate;
         auctionEnd = _endDate;
+        deliveryDueDate = _deliveryDueDate;
         maxBid = _maxBid;
         state = AuctionState.Open;
     }
@@ -71,6 +75,7 @@ contract VickreyAuctionSimple {
             payable(msg.sender),
             _amount,
             block.timestamp,
+            msg.value,
             false
         ));
         bidders.push(msg.sender);
@@ -127,10 +132,9 @@ contract VickreyAuctionSimple {
         
         for (uint256 i = 0; i < bids.length; i++) {
             if (bids[i].bidder != winner && !bids[i].depositReturned) {
-                uint256 deposit = bids[i].bidder.balance;
                 bids[i].depositReturned = true;
-                bids[i].bidder.transfer(deposit);
-                emit DepositReturned(bids[i].bidder, deposit);
+                payable(bids[i].bidder).transfer(bids[i].deposit);
+                emit DepositReturned(bids[i].bidder, bids[i].deposit);
             }
         }
         
